@@ -36,8 +36,11 @@ Plug 'dohq/sops.vim'
 ## Usage
 
 Command	Description	Default Mapping
+
+```Vim script
 :SopsEncrypt	Encrypt current buffer or selection	<Leader>se
 :SopsDecrypt	Decrypt current buffer or selection	<Leader>sd
+```
 
 ## Working with Kubernetes Manifests
 
