@@ -37,7 +37,7 @@ function! sops#process(is_decrypt, line1, line2) abort
         let l:cmd .= ' ' . g:sops_args
     endif
     let l:cmd .= ' /dev/stdin'
-    
+
     let l:result = system(l:cmd, l:content)
 
     " Handle execution errors
