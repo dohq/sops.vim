@@ -1,0 +1,56 @@
+*sops.txt* A simple SOPS wrapper for Vim/Neovim
+
+==============================================================================
+INTRODUCTION                                    *sops-introduction*
+
+vim-sops-simple is a minimal plugin to encrypt and decrypt YAML content
+using Mozilla SOPS directly within Vim/Neovim. It supports both full-file
+and range-based processing while maintaining indentation.
+
+==============================================================================
+USAGE                                           *sops-usage*
+
+:SopsEncrypt                                    *:SopsEncrypt*
+    Encrypt the current buffer or the selected range.
+    Note: It skips if the content already contains SOPS metadata.
+
+:SopsDecrypt                                    *:SopsDecrypt*
+    Decrypt the current buffer or the selected range.
+    Note: It skips if the content is not encrypted.
+
+==============================================================================
+CONFIGURATION                                   *sops-config*
+
+g:sops_args                                     *g:sops_args*
+    Additional arguments passed to the `sops` command. Use this to specify
+    PGP keys, Age recipients, or encrypted-regex.
+
+    Example:
+    >
+        let g:sops_args = '--age age1... --encrypted-regex "^(data|stringData)$"'
+    <
+
+    If a `.sops.yaml` file exists in the project root, SOPS will automatically
+    use it, and this variable can be left empty.
+
+==============================================================================
+MAPPINGS                                        *sops-mappings*
+
+By default, the plugin provides the following mappings:
+
+- <Leader>se  ->  :SopsEncrypt
+- <Leader>sd  ->  :SopsDecrypt
+
+To disable default mappings or define your own:
+>
+    nmap <YOUR_KEY> <Plug>SopsEncrypt
+    vmap <YOUR_KEY> <Plug>SopsEncrypt
+<
+
+==============================================================================
+ABOUT                                           *sops-about*
+
+License: MIT
+Repository: https://github.com/your-username/vim-sops-simple
+
+vim:tw=78:ts=8:ft=help:norl:
