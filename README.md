@@ -11,7 +11,7 @@ It is designed to handle both entire files and specific visual selections, makin
 - **Indent Preservation**: Automatically handles indentation so your YAML structure remains valid.
 - **Undo/Redo Friendly**: Changes are treated as a single modification.
 - **Smart Detection**: Prevents double-encryption or decrypting plain text.
-- **Flexible Config**: Respects your `.sops.yaml` or uses global variables as a fallback.
+- **Configuration Priority**: Automatically detects `.sops.yaml`. If found, it prioritizes the file over global settings.
 
 ## Requirements
 
@@ -37,10 +37,10 @@ Plug 'dohq/sops.vim'
 
 Command	Description	Default Mapping
 
-```Vim script
-:SopsEncrypt	Encrypt current buffer or selection	<Leader>se
-:SopsDecrypt	Decrypt current buffer or selection	<Leader>sd
-```
+| Command | Description | Default Mapping |
+| - | - | - |
+| :SopsEncrypt [regex] | Encrypt buffer or selection. Optional regex for keys. | <Leader>se |
+| :SopsDecrypt | Decrypt buffer or selection. | <Leader>sd |
 
 ## Working with Kubernetes Manifests
 
